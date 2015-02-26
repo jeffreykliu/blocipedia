@@ -1,9 +1,45 @@
 <div class="jumbotron">
-  <h1>Blocitpedia:</h1>
+  <h1>Blocipedia:</h1>
   <h3>Social, Markdown Wikis</h3>
 </div>
 
 <div class="row">
-  <div class="col-md-8">
+  
+  <div class="col-md-6">
+    <div align="center">
+      <h3>Free Plan</h3>
+
+
+      <div class="form-group">
+        <%= link_to "View wikis", wikis_path, class: 'btn btn-success' %>
+      </div>
+
+      <strong>Create as many public wikis as you want!</strong>
+    </div>
   </div>
+
+  <div class="col-md-6">
+    <div align="center">
+      <h3>Premium Plan</h3>
+
+      <div class="form-group">
+        <% if current_user %>
+          
+          <% if current_user.role == "premium" %>
+            <%= link_to "View private wikis", wikis_path, class: 'btn btn-success' %>
+          
+          <% else %>
+            <%= link_to "Upgrade now!", new_charge_path, class: 'btn btn-primary' %>
+
+          <% end %>
+
+        <% else %>
+          <%= link_to "Free registration!", new_user_session_path, class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+      
+      <strong>Create private wikis!</strong>
+    </div>
+  </div>
+
 </div>

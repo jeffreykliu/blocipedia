@@ -55,7 +55,11 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'bootstrap-sass' #Twitter Bootstrap, CSS styling
+gem 'font-awesome-rails' #Font-Awesome, web fonts and stylesheets
 gem 'devise' #Devise, authentication
 gem 'figaro' #Figaro, handles environmental variables
 gem 'faker'  #Faker, fake data
 gem 'omniauth-facebook' #OmniAuth Facebook, FB authentication
+gem 'pundit' #Pundit, authorization
+gem 'stripe' #Stripe, payment processor
+gem 'redcarpet' #Redcarpet, markdown

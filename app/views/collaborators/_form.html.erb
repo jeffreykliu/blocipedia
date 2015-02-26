@@ -1,0 +1,27 @@
+<tbody>
+  <% @users.each do |user| %>
+
+    <tr>
+      <td>
+        <%= user.name %>
+      </td>
+      
+      <td>
+        <%= user.email %>
+      </td>
+
+      <td>           
+
+          <%= link_to wiki_collaborators_url(@wiki, collaborator_id: user.id), class: 'btn btn-primary', method: :post, remote: true do %>
+            <i class="glyphicon glyphicon-star"> </i>&nbsp; Add collaborator
+          <% end %>              
+
+          <%= link_to wiki_collaborator_url(@wiki, user.id), class: 'btn btn-danger', method: :delete, remote: true do %>
+            <i class="glyphicon glyphicon-star-empty"> </i>&nbsp; Remove collaborator       
+          <% end %> 
+
+      </td>
+    </tr>
+
+  <% end %>
+</tbody>

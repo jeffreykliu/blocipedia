@@ -1,0 +1,53 @@
+<h1>Edit Wiki</h1>
+
+<div class="row">
+  <div class="col-md-4">
+    <p>Guidelines for wikis</p>
+    <ul>
+      <li>Make sure the it rhymes.</li>
+      <li>Don't use the letter "A".</li>
+      <li>The incessant use of hasthags will get you banned</li>
+    </ul>
+  </div>
+  
+  <div class="col-md-8">
+    
+    <%= render partial: 'wikis/form', locals: { wiki: @wiki } %> 
+
+    <% if user_signed_in? %>
+      <h3>Collaborators</h3>
+      <table class="table">
+        
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+              </tr>
+
+            </thead>
+            <tbody id="collaborators">
+              <%= render @collaborators %> 
+            </tbody>
+      
+      </table>
+    <% end %>
+
+    <% if (user_signed_in? && @wiki.owned_by?(current_user)) || current_user.role == "admin" %>
+      <table class="table">
+        <h3>Add Collaborators</h3>
+
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Add/Remove Collaborator</th>
+              </tr>
+            </thead>
+    
+              <%= render partial: 'collaborators/form', locals: { user: @user } %>
+    
+      </table>
+    <% end %>
+
+  </div>
+</div>

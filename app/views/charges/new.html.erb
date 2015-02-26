@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-8">
+    <h1>Premium Benefits, Premium Experience</h1>
+    <strong>As a premium member, you will be able to create unlimited private wikis. Store your knowledge, your insights, you notes, anything you want, and keep it all to yourself!</strong>
+    </br>
+    </br>
+
+     <%= form_tag charges_path do %>
+       <h3>Upgrade and begin your premium experience today!</h3>
+       <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="<%= @stripe_btn_data[:key] %>" data-amount=<%= @stripe_btn_data[:amount] %> data-description=="<%= @stripe_btn_data[:description] %>" ></script>
+     <% end %>
+
+  </div>
+</div>
